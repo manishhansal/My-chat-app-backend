@@ -25,6 +25,15 @@ const io = require('socket.io')(server, {
     }
 });
 
+app.get('/', (req,res)=> {
+    try{
+        res.status(200).json("Welcome to home route");
+    }catch(e){
+        console.log(e)
+        res.status(400).json(e)
+    }
+})
+
 app.get('/rooms', (req, res) => {
     res.json(rooms)
 });
